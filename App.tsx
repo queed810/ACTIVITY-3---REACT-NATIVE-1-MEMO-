@@ -1,26 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Alert } from 'react-native';
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Alert, SafeAreaView } from "react-native";
 
-interface Dog {
-  nombre: string;
-  origen: string;
-  tamano: string;
-}
+type Dog = {
+  id: string;
+  name: string;
+  origin?: string;
+  size?: string;
+  life_span?: string;
+  temperament?: string;
+};
+
+import dogsLocal from "./assets/dogs.json"; 
 
 export default function App() {
   const [dogs, setDogs] = useState<Dog[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data: Dog[] = require('./dogs.json'); 
-        setDogs(data);
-      } catch (error) {
-        console.error('Error al cargar el JSON:', error);
-      }
-    };
-
-    fetchData();
+    setDogs(dogsLocal as Dog[]);
   }, []);
 
   const onPressDog = (dog: Dog) => {
@@ -39,45 +35,26 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>🐶 Razas de Perros 🐾</Text>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Razas de Perro</Text>
+
       <FlatList
         data={dogs}
-        keyExtractor={(_, index) => index.toString()}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.item}
-            onPress={() => showDetails(item)}
-          >
-            <Text style={styles.itemText}>{item.nombre}</Text>
+          <TouchableOpacity style={styles.item} onPress={() => onPressDog(item)}>
+            <Text style={styles.itemText}>{item.name}</Text>
           </TouchableOpacity>
         )}
+        ListEmptyComponent={<Text>Cargando...</Text>}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 50,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  item: {
-    backgroundColor: '#e0f7fa',
-    padding: 15,
-    marginVertical: 5,
-    borderRadius: 10,
-    width: '90%',
-  },
-  itemText: {
-    fontSize: 18,
-  },
+  container: { flex: 1, padding: 16, paddingTop: 40, backgroundColor: "#fff" },
+  title: { fontSize: 24, fontWeight: "700", marginBottom: 12 },
+  item: { padding: 14, borderBottomWidth: 1, borderColor: "#eee" },
+  itemText: { fontSize: 18 }
 });
