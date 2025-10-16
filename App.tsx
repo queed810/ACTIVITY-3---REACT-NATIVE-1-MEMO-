@@ -28,7 +28,7 @@ export default function App() {
     ].filter(Boolean).join('\n\n');
 
     Alert.alert(
-      `🐕 ${dog.name}`,
+      ` ${dog.name}`,
       dogInfo || 'No hay información adicional disponible',
       [{ text: 'OK', style: 'default' }]
     );
