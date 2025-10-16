@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "name": "Labrador Retriever",
+    "origin": "Canadá",
+    "size": "Grande",
+    "life_span": "10-12 años",
+    "temperament": "Amigable, activo"
+  },
+  {
+    "id": "2",
+    "name": "Pastor Alemán",
+    "origin": "Alemania",
+    "size": "Grande",
+    "life_span": "9-13 años",
+    "temperament": "Leal, protector"
+  },
+  {
+    "id": "3",
+    "name": "Bulldog Inglés",
+    "origin": "Reino Unido",
+    "size": "Mediano",
+    "life_span": "8-10 años",
+    "temperament": "Tranquilo, afectuoso"
+  },
+  {
+    "id": "4",
+    "name": "Beagle",
+    "origin": "Reino Unido",
+    "size": "Pequeño/Mediano",
+    "life_span": "12-15 años",
+    "temperament": "Curioso, amigable"
+  },
+  {
+    "id": "5",
+    "name": "Pomerania",
+    "origin": "Alemania/Polonia",
+    "size": "Pequeño",
+    "life_span": "12-16 años",
+    "temperament": "Vivaz, alerta"
+  },
+  {
+    "id": "6",
+    "name": "Husky Siberiano",
+    "origin": "Rusia",
+    "size": "Mediano/Grande",
+    "life_span": "12-15 años",
+    "temperament": "Enérgico, amistoso"
+  },
+  {
+    "id": "7",
+    "name": "Dálmata",
+    "origin": "Croacia? Reino Unido?",
+    "size": "Mediano",
+    "life_span": "10-13 años",
+    "temperament": "Enérgico, amigable"
+  },
+  {
+    "id": "8",
+    "name": "Shih Tzu",
+    "origin": "Tíbet/China",
+    "size": "Pequeño",
+    "life_span": "10-18 años",
+    "temperament": "Afable, juguetón"
+  }
+]
