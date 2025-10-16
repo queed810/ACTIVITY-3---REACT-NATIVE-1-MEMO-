@@ -20,7 +20,18 @@ export default function App() {
   }, []);
 
   const onPressDog = (dog: Dog) => {
-    Alert.alert(dog.name, JSON.stringify(dog, null, 2));
+    const dogInfo = [
+      dog.origin ? `Origen: ${dog.origin}` : null,
+      dog.size ? `Tamaño: ${dog.size}` : null,
+      dog.life_span ? `Esperanza de vida: ${dog.life_span}` : null,
+      dog.temperament ? `Temperamento: ${dog.temperament}` : null
+    ].filter(Boolean).join('\n\n');
+
+    Alert.alert(
+      `🐕 ${dog.name}`,
+      dogInfo || 'No hay información adicional disponible',
+      [{ text: 'OK', style: 'default' }]
+    );
   };
 
   return (
