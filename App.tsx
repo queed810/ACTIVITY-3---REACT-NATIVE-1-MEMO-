@@ -13,20 +13,19 @@ export default function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Si el archivo está local:
-        const response = await fetch(require('./dogs.json'));
-        const data = await response.json();
+        const data: Dog[] = require('./dogs.json'); 
         setDogs(data);
       } catch (error) {
         console.error('Error al cargar el JSON:', error);
       }
     };
+
     fetchData();
   }, []);
 
   const showDetails = (dog: Dog) => {
     Alert.alert(
-      dog.nombre,
+      dog.nombre, 
       `Origen: ${dog.origen}\nTamaño: ${dog.tamano}`
     );
   };
@@ -36,7 +35,7 @@ export default function App() {
       <Text style={styles.title}>🐶 Razas de Perros 🐾</Text>
       <FlatList
         data={dogs}
-        keyExtractor={(item, index) => index.toString()}
+        keyExtractor={(_, index) => index.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.item}
