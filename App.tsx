@@ -23,10 +23,18 @@ export default function App() {
     fetchData();
   }, []);
 
-  const showDetails = (dog: Dog) => {
+  const onPressDog = (dog: Dog) => {
+    const dogInfo = [
+      dog.origin ? `Origen: ${dog.origin}` : null,
+      dog.size ? `Tamaño: ${dog.size}` : null,
+      dog.life_span ? `Esperanza de vida: ${dog.life_span}` : null,
+      dog.temperament ? `Temperamento: ${dog.temperament}` : null
+    ].filter(Boolean).join('\n\n');
+
     Alert.alert(
-      dog.nombre, 
-      `Origen: ${dog.origen}\nTamaño: ${dog.tamano}`
+      ` ${dog.name}`,
+      dogInfo || 'No hay información adicional disponible',
+      [{ text: 'OK', style: 'default' }]
     );
   };
 
